@@ -1,0 +1,20 @@
+--- a/exfat_oal.c	2019-04-14 23:00:45.190652499 +0200
++++ b/exfat_oal.c	2019-04-14 23:00:42.863963386 +0200
+@@ -128,11 +128,17 @@
+ 
+ TIMESTAMP_T *tm_current(TIMESTAMP_T *tp)
+ {
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,18,0)
++	struct timespec64 ts;
++#else
+ 	struct timespec ts;
++#endif
+ 	time_t second, day, leap_day, month, year;
+ 
+ #if LINUX_VERSION_CODE < KERNEL_VERSION(4,8,0)
+ 	ts = CURRENT_TIME_SEC;
++#elif LINUX_VERSION_CODE >= KERNEL_VERSION(4,18,0)
++	ktime_get_real_ts64(&ts);
+ #else
+ 	ktime_get_real_ts(&ts);
+ #endif
