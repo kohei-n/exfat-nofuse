@@ -2,21 +2,20 @@ exfat-nofuse
 ============
 
 Fork of https://github.com/dorimanx/exfat-nofuse
-Linux Kernel Driver for exfat
-
+Linux Kernel Driver for exfat, also compatible with the latest linux kernel 5.0 and newer.
 
 Installing as a DKMS module:
 =================================
 
 Then copy the root of this repository to /usr/src
 
-	sudo cp -R . /usr/src/exfat-1.2.8 (or whatever version number declared on dkms.conf is)
-	sudo dkms add -m exfat -v 1.2.8
+	sudo cp -R . /usr/src/exfat-1.2.9 (or whatever version number declared on dkms.conf is)
+	sudo dkms add -m exfat -v 1.2.9
 
 Build and load the module:
 
-	sudo dkms build -m exfat -v 1.2.8
-	sudo dkms install -m exfat -v 1.2.8
+	sudo dkms build -m exfat -v 1.2.9
+	sudo dkms install -m exfat -v 1.2.9
 
 Now you have a proper dkms module that will work for a long time... hopefully.
 
