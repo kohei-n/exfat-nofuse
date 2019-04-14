@@ -9,11 +9,8 @@ Installing as a DKMS module:
 
 Then copy the root of this repository to /usr/src
 
-	sudo cp -R . /usr/src/exfat-1.2.9 (or whatever version number declared on dkms.conf is)
+	sudo cp -R . /usr/src/exfat-1.2.9
 	sudo dkms add -m exfat -v 1.2.9
-
-Build and load the module:
-
 	sudo dkms build -m exfat -v 1.2.9
 	sudo dkms install -m exfat -v 1.2.9
 
